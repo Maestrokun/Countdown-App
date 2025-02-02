@@ -41,8 +41,8 @@ const Counter = ({ countdownTime, onRefresh }) => {
   return (
     <Box display={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "28px", fontWeight: 700 }}>
       {isTimeUp ? (
-        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center", backgroundColor: "#f70404", color: '#FFFFFF', width: '100%', height: '100%',
-          fontSize: '250px',
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center", backgroundColor: "#f70404", color: '#FFFFFF', width: '100vw', height: '100vh',
+          fontSize: '340px',
           fontWeight: 700 }}>
           <Box>TIME UP</Box>
           <Button variant="contained" color="primary" onClick={handleRefresh} sx={{ marginTop: "20px", width: "30px", height: "50px", borderRadius: '50%' }}>
@@ -50,7 +50,7 @@ const Counter = ({ countdownTime, onRefresh }) => {
             </Button>
         </Box>
       ) : (
-          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', color: '#FFFFFF', width: '100%', height: '100%', }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', color: '#FFFFFF', width: '100vw', height: '100vh', }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', color: '#FFFFFF', fontSize: '500px',
           fontWeight: 700 }}>{formatTime(countdown)}</Box>
             <Button variant="contained" color="primary" onClick={handleRefresh} sx={{width: "20px", height: "50px", borderRadius: '50%' }}>
