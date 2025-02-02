@@ -20,6 +20,13 @@ const SetCount = ({ handleStart }) => {
     setCountdownTime(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleStartTimerClick();
+    }
+  };
+
   const handlePresetClick = (presetTimeInMinutes) => {
     const timeInSeconds = presetTimeInMinutes * 60;
     console.log(`Starting timer with ${timeInSeconds} seconds`);
@@ -39,64 +46,78 @@ const SetCount = ({ handleStart }) => {
         gap: 8
       }}
     >
-      {/* <Box></Box> */}
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: '93vw', px:2 }}
       >
-        <Typography sx={{ fontSize: "300px", fontWeight: 700 }}>
-          00:00
-        </Typography>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            width: "100%",
-            gap: 2
+            width: '90%'
           }}
         >
+          <Typography sx={{ fontSize: "300px", fontWeight: 700 }}>
+            00:00
+          </Typography>
           <Box
             sx={{
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              width: "100%",
               gap: 2
             }}
           >
-            <TextField
-              label={inputType === "seconds" ? "Seconds" : "Minutes"}
-              sx={{ color: "#fff", background: "#fff", borderRadius: "10px" }}
-              value={countdownTime}
-              onChange={handleCountdownTimeChange}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ textTransform: "capitalize" }}
-              onClick={() =>
-                setInputType(inputType === "seconds" ? "minutes" : "seconds")
-              }
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 2
+              }}
             >
-              {inputType === "seconds" ? "Mins" : "Secs"}
-            </Button>
-          </Box>
-          <Box>
-            <Button
-              variant="contained"
-              sx={{ width: 30, height: 50, borderRadius: "50%" }}
-              onClick={handleStartTimerClick}
+              <TextField
+                placeholder={inputType === "seconds" ? "Seconds" : "Minutes"}
+                variant="outlined"
+                sx={{ color: "#fff", background: "#fff", borderRadius: "10px" }}
+                value={countdownTime}
+                onChange={handleCountdownTimeChange}
+                onKeyPress={handleKeyPress}
+              />
+              <Box>
+                <Button
+                  variant="contained"
+                  sx={{ width: 30, height: 50, borderRadius: "50%" }}
+                  onClick={handleStartTimerClick}
+                >
+                  <PlayArrowIcon />
+                </Button>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "flex-start"
+              }}
             >
-              <PlayArrowIcon />
-            </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ textTransform: "capitalize" }}
+                onClick={() =>
+                  setInputType(inputType === "seconds" ? "minutes" : "seconds")
+                }
+              >
+                {inputType === "seconds" ? "Minutes" : "Seconds"}
+              </Button>
+            </Box>
           </Box>
         </Box>
-        <Box sx={{ display: "flex", mt: 6, gap: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", mt: 6, gap: 2, width: '7%' }}>
           {[5, 10, 15, 20, 30].map((time) => (
             <Button
               key={time}
