@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./CountdownTimer.css";
+// import "./CountdownTimer.css";
+import { Box, Button } from "@mui/material";
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 const formatTime = (time) => {
   let minutes = Math.floor(time / 60);
@@ -10,7 +12,7 @@ const formatTime = (time) => {
   return minutes + ":" + seconds;
 };
 
-const Counter = ({ countdownTime }) => {
+const Counter = ({ countdownTime, onRefresh }) => {
   const [countdown, setCountDown] = useState(countdownTime);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const timerId = useRef();
@@ -29,14 +31,34 @@ const Counter = ({ countdownTime }) => {
     }
   }, [countdown]);
 
+  const handleRefresh = () => {
+    setIsTimeUp(false);
+    setCountDown(countdownTime);
+    onRefresh();
+  };
+
+
   return (
-    <div>
+    <Box display={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "28px", fontWeight: 700 }}>
       {isTimeUp ? (
-        <div className="final">TIME UP</div>
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center", backgroundColor: "#f70404", color: '#FFFFFF', width: '100%', height: '100%',
+          fontSize: '250px',
+          fontWeight: 700 }}>
+          <Box>TIME UP</Box>
+          <Button variant="contained" color="primary" onClick={handleRefresh} sx={{ marginTop: "20px", width: "30px", height: "50px", borderRadius: '50%' }}>
+              <RefreshIcon />
+            </Button>
+        </Box>
       ) : (
-        <div className="countdown-timer">{formatTime(countdown)}</div>
+          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', color: '#FFFFFF', width: '100%', height: '100%', }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000', color: '#FFFFFF', fontSize: '500px',
+          fontWeight: 700 }}>{formatTime(countdown)}</Box>
+            <Button variant="contained" color="primary" onClick={handleRefresh} sx={{width: "20px", height: "50px", borderRadius: '50%' }}>
+              <RefreshIcon />
+            </Button>
+          </Box>
       )}
-    </div>
+    </Box>
   );
 };
 
