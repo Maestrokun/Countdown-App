@@ -114,7 +114,7 @@ const SetCount = ({ handleStart }) => {
           ))}
         </Box>
       </Box>
-      <Typography sx={{ fontSize: "14px", fontWeight: 600, mb: 2 }}>
+      <Typography sx={{ fontSize: "12px", fontWeight: 600, mb: 2 }}>
         Copyright @Maestro, 2023
       </Typography>
     </Box>
