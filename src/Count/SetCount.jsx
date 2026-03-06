@@ -50,6 +50,11 @@ const SetCount = ({ onStart }) => {
             placeholder={unit === "seconds" ? "Seconds" : "Minutes"}
             type="number"
             sx={{ background: "#fff", borderRadius: 2 }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                startTimer();
+              }
+            }}
           />
 
           <Button
