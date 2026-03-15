@@ -1,0 +1,40 @@
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    line-height: 21px;
+    font-size: 41em;
+    font-weight: 600;
+    color: #fff;
+    background-color: #000;
+}
+
+.final {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 28em;
+    font-weight: 700;
+    color: #fff;
+    background-color: #f70404;
+}
+
+.set-timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    line-height: 21px;
+    font-size: 10em;
+    font-weight: 700;
+    color: #fff;
+    background-color: #000;
+}
+
+.footer {
+    font-size: 20px;
+    font-weight: 600;
+}
