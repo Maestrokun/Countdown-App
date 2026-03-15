@@ -81,11 +81,15 @@ const CountdownTimer = ({ initialSeconds }) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: 4,
+        gap: 4
       }}
     >
       <Typography
-        sx={{ fontSize: isExtended ? "15vw" : "10vw", fontWeight: 700 }}
+        sx={{
+          fontSize: isExtended ? "15vw" : "10vw",
+          fontWeight: 700,
+          textAlign: "center"
+        }}
       >
         {isTimeUp
           ? "TIME UP"
