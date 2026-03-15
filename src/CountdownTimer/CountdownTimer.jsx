@@ -86,7 +86,7 @@ const CountdownTimer = ({ initialSeconds }) => {
     >
       <Typography
         sx={{
-          fontSize: isExtended ? "5vw" : "10vw",
+          fontSize: isExtended ? "150px" : "10vw",
           fontWeight: 700,
           textAlign: "center"
         }}
