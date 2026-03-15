@@ -87,8 +87,7 @@ const CountdownTimer = ({ initialSeconds }) => {
       {/* {isExtended ? <Typography></Typography>} */}
       <Typography
         sx={{
-          fontSize:
-            isExtended && isTimeUp ? "15px" : isExtended ? "15vw" : "10vw",
+          fontSize: isTimeUp ? "15px" : "10vw",
           fontWeight: 700,
           textAlign: "center"
         }}
