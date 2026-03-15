@@ -16,7 +16,7 @@ const Counter = ({
   onExit,
   showControls = true,
   onExtend,
-  isExtended,
+  isExtended
 }) => {
   const [timeLeft, setTimeLeft] = useState(duration);
   const [isRunning, setIsRunning] = useState(true);
@@ -63,8 +63,8 @@ const Counter = ({
             duration,
             timeLeft: next,
             isRunning: next > 0,
-            isFinished: finished,
-          }),
+            isFinished: finished
+          })
         );
 
         if (finished) clearInterval(intervalRef.current);
@@ -80,7 +80,7 @@ const Counter = ({
     setIsRunning(true);
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ duration, timeLeft, isRunning: true }),
+      JSON.stringify({ duration, timeLeft, isRunning: true })
     );
   };
 
@@ -88,7 +88,7 @@ const Counter = ({
     setIsRunning(false);
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ duration, timeLeft, isRunning: false }),
+      JSON.stringify({ duration, timeLeft, isRunning: false })
     );
   };
 
@@ -102,8 +102,8 @@ const Counter = ({
       JSON.stringify({
         duration,
         timeLeft: duration,
-        isRunning: false,
-      }),
+        isRunning: false
+      })
     );
   };
 
@@ -121,13 +121,13 @@ const Counter = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <Box
         sx={{
-          fontSize: showControls ? "12vw" : "25vw",
-          fontWeight: 700,
+          fontSize: showControls ? "12vw" : isTimeUp ? "18vw" : "25vw",
+          fontWeight: 700
         }}
       >
         {/* {isTimeUp ? "TIME UP" : formatTime(timeLeft)} */}
